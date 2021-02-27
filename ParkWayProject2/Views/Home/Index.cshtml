@@ -1,0 +1,37 @@
+﻿@model ParkWayProject2.Models.AllPayments;
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    
+</div>
+
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Charges Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.fees)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.feeAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maxAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.minAmount)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

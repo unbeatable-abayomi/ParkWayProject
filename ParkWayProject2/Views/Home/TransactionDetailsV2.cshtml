@@ -1,0 +1,41 @@
+﻿@model ParkWayProject2.Models.PaymentData
+
+@{
+    ViewData["Title"] = "TransactionDetailsV2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>TransactionDetails V2</h1>
+
+
+<div>
+    <table class="table p-5">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Transfer Amount</th>
+                <th>Charge</th>
+                <th>Debit Amount (Transfer Amount + Charge)</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.transferAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.totalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.feeAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.transferAmount)
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <a asp-action="TransferFundsV2">Back to List</a>
+</div>

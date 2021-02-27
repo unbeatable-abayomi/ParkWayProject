@@ -1,0 +1,49 @@
+﻿@model ParkWayProject2.Models.PaymentData
+
+@{
+    ViewData["Title"] = "TransactionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Transaction Details</h1>
+
+<div>
+
+    <hr />
+
+    <h3>Dear Customer,</h3>
+    <hr />
+    <h4>
+        Kindly note that for your Transfer of <strong> &#8358;@Html.DisplayFor(model => model.transferAmount)</strong>
+        you will be Charged <strong>&#8358;@Html.DisplayFor(model => model.feeAmount)</strong> accordingly. Thank you
+    </h4>
+
+    <dl class="row mt-5">
+        <dt class="col-sm-2 ">
+            @Html.DisplayNameFor(model => model.feeAmount)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>&#8358; @Html.DisplayFor(model => model.feeAmount)</strong>
+        </dd>
+
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.transferAmount)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>&#8358; @Html.DisplayFor(model => model.transferAmount)</strong>
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.totalAmount)
+        </dt>
+        
+        <dd class="col-sm-10">
+            <strong>&#8358; @Html.DisplayFor(model => model.totalAmount)</strong>
+        </dd>*@
+        
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="TransferFunds">Back to TransferFunds</a>
+</div>
