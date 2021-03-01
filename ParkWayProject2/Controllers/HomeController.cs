@@ -27,40 +27,9 @@ namespace ParkWayProject2.Controllers
 
         public IActionResult Index()
         {
-            var webClient = new WebClient();
-            var json = webClient.DownloadString(@"C:\Users\Limbot Express\source\repos\ParkWayProject2\ParkWayProject2\wwwroot\feeJson\fees.config.json");
-         
-            
-            var allPayments = JsonConvert.DeserializeObject<AllPayments>(json);
-            decimal charge = 0.0m;
-            decimal payment = 0.0m;
+  
 
-            foreach (var item in allPayments.fees)
-            {
-                if( payment >= item.minAmount && payment <= item.maxAmount)
-                {
-                    PaymentDataViewModel paymentDataViewModel = new PaymentDataViewModel()
-                    {
-                        feeAmount = item.feeAmount,
-                        minAmount =item.minAmount,
-                        maxAmount = item.maxAmount,
-                        totalAmount = item.feeAmount + payment,
-                    };
-
-                    PaymentData allPaymentsData = new PaymentData();
-
-                    allPaymentsData.feeAmount = paymentDataViewModel.feeAmount;
-                    allPaymentsData.minAmount = paymentDataViewModel.minAmount;
-                    allPaymentsData.maxAmount = paymentDataViewModel.maxAmount;
-                    allPaymentsData.totalAmount = paymentDataViewModel.totalAmount;
-
-                    return View(allPaymentsData);
-                }
-                charge = item.feeAmount;
-            }
-
-
-            return View(allPayments);
+            return View();
         }
 
         public IActionResult Privacy()
